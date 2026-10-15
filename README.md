@@ -1,10 +1,10 @@
-# Qualidade em foco — proposta para Lacius
+# Lacius — proposta de redesign
 
 Estudo independente de redesign de https://www.lacius.com.br. **Não é o site oficial, não possui vínculo com a Lacius e não reproduz sua interface real.**
 
 ## O que melhora
 - Mensagem inicial focada em benefício.
-- Soluções agrupadas por necessidade.
+- Catálogo dos 14 módulos com explicações visíveis, agrupados em quatro necessidades.
 - Três fluxos explicativos: documentos e treinamentos; auditorias e ações; equipamentos e alertas.
 - Cada exemplo mostra problema, apoio do produto, etapas e módulos envolvidos.
 - Navegação responsiva, teclado e suporte a movimento reduzido.
@@ -23,7 +23,7 @@ Acesse `http://127.0.0.1:8787`.
 ## Estrutura
 - `index.html`: textos, exemplos e seções.
 - `styles.css`: visual e adaptação para celular.
-- `app.js`: menu e atalhos dos módulos para os exemplos.
+- `app.js`: menu responsivo e fechamento por Escape.
 
 ## Limites
 Os fluxos são ilustrações baseadas nas funcionalidades descritas no site original, não telas reais nem automações garantidas. As situações são fictícias. Não há cadastro, coleta de dados, cookies, backend ou integração com o produto. Preços, condições e escopo devem ser confirmados com a Lacius.
