@@ -13,9 +13,11 @@ selector.querySelectorAll('button').forEach(button => {
       option.setAttribute('aria-pressed', String(option === button));
     });
     document.querySelectorAll('.module-group').forEach(section => {
+      section.hidden = group !== 'todos' && section.id !== group;
       section.classList.toggle('recommended', section.id === group);
     });
     selector.querySelector('.selector-result').textContent = suggestions[group] || 'Os 14 módulos estão disponíveis abaixo.';
+    document.querySelector('.category-links').hidden = group !== 'todos';
     const jump = selector.querySelector('.selector-jump');
     jump.hidden = group === 'todos';
     if (group !== 'todos') jump.href = `#${group}`;
