@@ -59,6 +59,18 @@ h4 { font-size: 20px; line-height: 1.35; letter-spacing: -.02em; }
 .section { padding: clamp(64px, 6vw, 120px) var(--gutter); }
 .section-heading { display: grid; grid-template-columns: 1.3fr 1fr; align-items: end; gap: 48px; margin-bottom: 40px; }
 .section-heading > p { max-width: 50ch; color: var(--muted); font-size: 18px; }
+[hidden] { display: none !important; }
+.module-selector { background: var(--soft); border: 1px solid var(--line); padding: 28px; margin-bottom: 32px; }
+.module-selector .eyebrow { margin-bottom: 12px; }
+#selector-label { font-size: 22px; font-weight: 600; }
+.selector-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.selector-options button { min-height: 48px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); }
+.selector-options button:hover { border-color: var(--green); }
+.selector-options button[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.selector-result { max-width: 80ch; margin-top: 20px; color: var(--muted); }
+.selector-jump { margin-top: 8px; }
+.module-group.recommended { outline: 3px solid var(--green); outline-offset: 4px; }
+.module-group.recommended .group-intro::before { content: "PONTO DE PARTIDA SUGERIDO"; display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 20px; }
 .category-links { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 40px; }
 .category-links a { padding: 18px 0; min-height: 60px; font-size: 15px; font-weight: 600; }
 .category-links a:hover { color: var(--green); text-decoration: underline; text-underline-offset: 5px; }
