@@ -28,12 +28,39 @@ selector.querySelectorAll('button').forEach(button => {
       if (!section.hidden) reveal(section);
     });
     selector.querySelector('.selector-result').textContent = suggestions[group] || 'Os 14 módulos estão disponíveis abaixo.';
-    document.querySelector('.category-links').hidden = group !== 'todos';
     const jump = selector.querySelector('.selector-jump');
     jump.hidden = group === 'todos';
     if (group !== 'todos') jump.href = `#${group}`;
   });
 });
+
+selector.querySelector('[data-group="documentar"]').click();
+
+const exampleSelector = document.querySelector('.example-selector');
+const exampleButtons = exampleSelector.querySelectorAll('button');
+function selectExample(id, animate = true) {
+  exampleButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.example === id)));
+  document.querySelectorAll('.product-example').forEach(example => {
+    example.hidden = example.id !== id;
+    example.getAnimations().forEach(animation => animation.cancel());
+    if (!example.hidden && animate) reveal(example);
+  });
+  const selected = [...exampleButtons].find(button => button.dataset.example === id);
+  exampleSelector.querySelector('.example-status').textContent = `Mostrando: ${selected.textContent}.`;
+}
+exampleButtons.forEach(button => button.addEventListener('click', () => {
+  if (button.getAttribute('aria-pressed') !== 'true') selectExample(button.dataset.example);
+}));
+function followExampleHash() {
+  const id = location.hash.slice(1);
+  if (![...exampleButtons].some(button => button.dataset.example === id)) return;
+  selectExample(id, false);
+  document.getElementById(id).scrollIntoView();
+}
+exampleSelector.hidden = false;
+selectExample('exemplo-documentos', false);
+window.addEventListener('hashchange', followExampleHash);
+followExampleHash();
 
 const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#menu');

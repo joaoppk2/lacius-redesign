@@ -69,6 +69,9 @@ h4 { font-size: 20px; line-height: 1.35; letter-spacing: -.02em; }
 .selector-options button[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
 .selector-result { max-width: 80ch; margin-top: 20px; color: var(--muted); }
 .selector-jump { margin-top: 8px; }
+#example-selector-label { font-size: 22px; font-weight: 600; }
+.example-selector { background: var(--white); }
+.example-status { margin-top: 20px; color: var(--muted); }
 .module-group.recommended { outline: 3px solid var(--green); outline-offset: 4px; }
 .module-group.recommended .group-intro::before { content: "PONTO DE PARTIDA SUGERIDO"; display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 20px; }
 .category-links { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 40px; }
