@@ -3,35 +3,33 @@
 Estudo independente de redesign de https://www.lacius.com.br. **Não é o site oficial, não possui vínculo com a Lacius e não reproduz sua interface real.**
 
 ## O que melhora
-- Mensagem inicial focada em benefício, não em quantidade de módulos.
+- Mensagem inicial focada em benefício.
 - Soluções agrupadas por necessidade.
-- Demonstração interativa sem cadastro: documentos, auditorias e ações.
-- Passeio guiado no lugar de vídeo, fácil de alterar.
+- Três fluxos explicativos: documentos e treinamentos; auditorias e ações; equipamentos e alertas.
+- Cada exemplo mostra problema, apoio do produto, etapas e módulos envolvidos.
 - Navegação responsiva, teclado e suporte a movimento reduzido.
 
 ## Abrir
 Abra `index.html` no navegador. Não precisa instalar dependências.
 
-Opcionalmente, sirva a pasta com Python:
+Opcionalmente:
 
 ```sh
 python -m http.server 8787 --bind 127.0.0.1
 ```
 
-Depois acesse `http://127.0.0.1:8787`.
+Acesse `http://127.0.0.1:8787`.
 
 ## Estrutura
-- `index.html`: textos e seções.
+- `index.html`: textos, exemplos e seções.
 - `styles.css`: visual e adaptação para celular.
-- `app.js`: telas demonstrativas, passeio e menu.
+- `app.js`: menu e atalhos dos módulos para os exemplos.
 
 ## Limites
-Todos os dados da demonstração são fictícios. Interações ficam na memória e são apagadas ao recarregar. Não há login, coleta de dados, cookies, backend ou integração com o produto. Não são feitas promessas sobre preços, certificação ou funcionalidades reais. Os 14 módulos e as condições de demonstração foram consultados no site original; devem ser confirmados com a Lacius.
+Os fluxos são ilustrações baseadas nas funcionalidades descritas no site original, não telas reais nem automações garantidas. As situações são fictícias. Não há cadastro, coleta de dados, cookies, backend ou integração com o produto. Preços, condições e escopo devem ser confirmados com a Lacius.
 
 ## Conferência manual
-1. Alternar entre Documentos, Auditorias e Ações.
-2. Simular aprovação e verificar que o estado mudou.
-3. Abrir ação relacionada à auditoria e simular verificação.
-4. Completar o passeio de três etapas e reiniciar o exemplo.
-5. Testar menu, Escape, links e FAQ por teclado.
-6. Conferir larguras de 390px e 1440px, sem rolagem horizontal.
+1. Abrir os exemplos pelos atalhos em Soluções e Conhecer o produto.
+2. Conferir os três fluxos, quatro etapas por fluxo e módulos envolvidos.
+3. Testar menu, Escape, links e FAQ por teclado.
+4. Conferir 390px e 1440px, sem rolagem horizontal.
