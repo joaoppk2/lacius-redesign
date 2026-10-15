@@ -1,3 +1,21 @@
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const motionKeyframes = [{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'translateY(0)' }];
+function reveal(element, duration = 450) {
+  element.getAnimations().forEach(animation => animation.cancel());
+  if (!reducedMotion.matches) element.animate(motionKeyframes, { duration, easing: 'cubic-bezier(.2,.7,.3,1)' });
+}
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    revealObserver.unobserve(entry.target);
+    reveal(entry.target);
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.section-heading, .module-group, .product-example, .faq-section > div, .closing').forEach(element => revealObserver.observe(element));
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) document.getAnimations().forEach(animation => animation.cancel());
+});
+
 const selector = document.querySelector('.module-selector');
 const suggestions = {
   documentar: 'Documentos, Registros e Treinamentos: um ponto de partida para organizar informações e capacitação.',
@@ -15,6 +33,8 @@ selector.querySelectorAll('button').forEach(button => {
     document.querySelectorAll('.module-group').forEach(section => {
       section.hidden = group !== 'todos' && section.id !== group;
       section.classList.toggle('recommended', section.id === group);
+      section.getAnimations().forEach(animation => animation.cancel());
+      if (!section.hidden) reveal(section, 260);
     });
     selector.querySelector('.selector-result').textContent = suggestions[group] || 'Os 14 módulos estão disponíveis abaixo.';
     document.querySelector('.category-links').hidden = group !== 'todos';
